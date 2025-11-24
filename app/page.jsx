@@ -1,8 +1,228 @@
 export default function Home() {
   return (
-    <main className="p-10 text-center">
-      <h1 className="text-4xl font-bold">S.C. Mead Communications</h1>
-      <p className="mt-4 text-xl">Northern Nevada Structured Cabling & CCTV</p>
+    <main className="min-h-screen bg-slate-50 text-slate-900">
+      {/* Header */}
+      <header className="border-b bg-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+          <div className="flex flex-col">
+            <div className="text-sm font-semibold tracking-wide text-slate-800">
+              S. C. Mead Communications LLC
+            </div>
+            <div className="text-xs text-slate-500">
+              Structured Cabling & CCTV • Northern Nevada
+            </div>
+          </div>
+          <div className="hidden items-center gap-4 text-sm text-slate-700 md:flex">
+            <a href="#services" className="hover:text-blue-600">
+              Services
+            </a>
+            <a href="#about" className="hover:text-blue-600">
+              About
+            </a>
+            <a href="#contact" className="hover:text-blue-600">
+              Contact
+            </a>
+            <a
+              href="tel:7753033269"
+              className="rounded-md bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-500"
+            >
+              Call: (775) 303-3269
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 md:flex-row md:items-center">
+          <div className="flex-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-300">
+              Northern Nevada Low Voltage Contractor
+            </p>
+            <h1 className="mt-3 text-3xl font-extrabold md:text-4xl">
+              Structured Cabling & CCTV You Can Depend On.
+            </h1>
+            <p className="mt-4 max-w-xl text-sm md:text-base text-slate-200">
+              Professional low voltage services for businesses and homeowners in Reno, Sparks,
+              and Carson City. From clean, reliable cabling to CCTV systems that actually
+              work when you need them.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="#contact"
+                className="rounded-md bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-blue-400"
+              >
+                Request a Free Estimate
+              </a>
+              <div className="text-xs text-slate-300 md:text-sm">
+                In the industry since 2008 • Licensed & Insured
+              </div>
+            </div>
+          </div>
+          <div className="flex-1 rounded-lg border border-slate-700 bg-slate-900/50 p-5 text-sm text-slate-200">
+            <h2 className="text-sm font-semibold text-blue-200">
+              Service Area
+            </h2>
+            <p className="mt-2">
+              Based in Reno, Nevada and serving nearby communities.
+            </p>
+            <ul className="mt-3 space-y-1 text-xs">
+              <li>• Reno</li>
+              <li>• Sparks</li>
+              <li>• Carson City</li>
+            </ul>
+            <p className="mt-4 text-xs text-slate-300">
+              Need work slightly outside these areas? Reach out and we&apos;ll see what we can do.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section id="services" className="mx-auto max-w-6xl px-4 py-12">
+        <h2 className="text-2xl font-bold text-slate-900">Services</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Low voltage and network infrastructure services for commercial and residential projects.
+        </p>
+
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          <div className="rounded-lg border bg-white p-5 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">
+              Structured Cabling
+            </h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Clean, organized cabling for offices, shops, and industrial spaces.
+            </p>
+            <ul className="mt-3 space-y-1 text-xs text-slate-600">
+              <li>• Cat5e, Cat6, and fiber optic runs</li>
+              <li>• Patch panels, racks, and terminations</li>
+              <li>• Testing, labeling, and documentation</li>
+            </ul>
+          </div>
+
+          <div className="rounded-lg border bg-white p-5 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">
+              CCTV & Security Cameras
+            </h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Camera systems installed and aimed properly, so you get the footage you need.
+            </p>
+            <ul className="mt-3 space-y-1 text-xs text-slate-600">
+              <li>• Commercial and residential CCTV</li>
+              <li>• NVR setup and remote access</li>
+              <li>• Upgrades and re-configurations</li>
+            </ul>
+          </div>
+
+          <div className="rounded-lg border bg-white p-5 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">
+              Network & Low Voltage
+            </h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Support for the low voltage side of your network and systems.
+            </p>
+            <ul className="mt-3 space-y-1 text-xs text-slate-600">
+              <li>• Switches, patching, and cleanup work</li>
+              <li>• Wi-Fi access point cabling</li>
+              <li>• Troubleshooting existing wiring</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <h2 className="text-2xl font-bold text-slate-900">About S. C. Mead Communications</h2>
+          <p className="mt-2 text-sm text-slate-600">
+            S. C. Mead Communications LLC is a low voltage contractor based in Reno, Nevada.
+            With experience dating back to 2008, we&apos;ve worked with major providers and
+            local businesses across Northern Nevada on structured cabling, CCTV, and network
+            projects.
+          </p>
+          <p className="mt-2 text-sm text-slate-600">
+            The focus is simple: do clean, reliable work that&apos;s built to last and easy
+            to service later. Whether it&apos;s a small cleanup or a new build, the goal is to
+            leave you with a system that just works.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="bg-slate-900 text-white">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <h2 className="text-2xl font-bold">Request a Free Estimate</h2>
+          <p className="mt-2 text-sm text-slate-200">
+            Tell us a bit about your project and we&apos;ll follow up to schedule a time to talk.
+          </p>
+
+          <form className="mt-6 grid gap-4 md:max-w-xl">
+            <div className="grid gap-4 md:grid-cols-2">
+              <input
+                type="text"
+                placeholder="Name"
+                className="rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm outline-none focus:border-blue-400"
+                required
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                className="rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm outline-none focus:border-blue-400"
+                required
+              />
+            </div>
+            <input
+              type="tel"
+              placeholder="Phone (optional)"
+              className="rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm outline-none focus:border-blue-400"
+            />
+            <textarea
+              placeholder="Project details, location, and any timelines."
+              rows={4}
+              className="rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm outline-none focus:border-blue-400"
+              required
+            />
+            <button
+              type="submit"
+              className="mt-2 inline-flex w-fit items-center justify-center rounded-md bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-400"
+            >
+              Submit (demo – not wired yet)
+            </button>
+            <p className="mt-1 text-xs text-slate-300">
+              This form isn&apos;t sending yet. We&apos;ll wire it to your email at scmeadllc@gmail.com.
+            </p>
+          </form>
+
+          <div className="mt-8 space-y-1 text-xs text-slate-300">
+            <div>Based in Reno, NV • Serving Reno, Sparks, and Carson City</div>
+            <div>
+              Phone:{" "}
+              <a href="tel:7753033269" className="text-blue-300 hover:underline">
+                (775) 303-3269
+              </a>
+            </div>
+            <div>
+              Email:{" "}
+              <a href="mailto:scmeadllc@gmail.com" className="text-blue-300 hover:underline">
+                scmeadllc@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t bg-slate-950">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-slate-400 md:flex-row md:items-center md:justify-between">
+          <div>
+            © {new Date().getFullYear()} S. C. Mead Communications LLC. All rights reserved.
+          </div>
+          <div className="space-y-1 md:text-right">
+            <div>Reno, NV • Structured Cabling & CCTV</div>
+            <div>NV Contractor License #0091593 • Bid Limit: $10,000</div>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
