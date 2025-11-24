@@ -263,3 +263,4 @@ export default function Home() {
     </main>
   );
 }
+Clean homepage update
