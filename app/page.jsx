@@ -254,7 +254,7 @@ export default function Home() {
             © {new Date().getFullYear()} S. C. Mead Communications LLC. All rights reserved.
           </div>
           <div className="space-y-1 md:text-right">
-            <div>Reno, NV • Structured Cabling & CCTV</div>
+            <div>Reno, NV • Low Voltage and Cable Management</div>
             <div>NV Contractor License #0091593 • Bid Limit: $10,000</div>
           </div>
         </div>
@@ -263,4 +263,4 @@ export default function Home() {
     </main>
   );
 }
-Clean homepage update
+
