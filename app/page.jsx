@@ -149,6 +149,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
+         {/* Contact */}
       <section id="contact" className="bg-slate-900 text-white">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <h2 className="text-2xl font-bold">Request a Free Estimate</h2>
@@ -156,40 +157,52 @@ export default function Home() {
             Tell us a bit about your project and we&apos;ll follow up to schedule a time to talk.
           </p>
 
-          <form className="mt-6 grid gap-4 md:max-w-xl">
+          <form
+            className="mt-6 grid gap-4 md:max-w-xl"
+            action="https://formspree.io/f/xgvqggod"
+            method="POST"
+          >
             <div className="grid gap-4 md:grid-cols-2">
               <input
                 type="text"
+                name="name"
                 placeholder="Name"
                 className="rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm outline-none focus:border-blue-400"
                 required
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
                 className="rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm outline-none focus:border-blue-400"
                 required
               />
             </div>
+
             <input
               type="tel"
+              name="phone"
               placeholder="Phone (optional)"
               className="rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm outline-none focus:border-blue-400"
             />
+
             <textarea
+              name="message"
               placeholder="Project details, location, and any timelines."
               rows={4}
               className="rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm outline-none focus:border-blue-400"
               required
             />
+
             <button
               type="submit"
               className="mt-2 inline-flex w-fit items-center justify-center rounded-md bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-400"
             >
-              Submit (demo – not wired yet)
+              Submit
             </button>
+
             <p className="mt-1 text-xs text-slate-300">
-              This form isn&apos;t sending yet. We&apos;ll wire it to your email at scmeadllc@gmail.com.
+              We typically respond within one business day.
             </p>
           </form>
 
@@ -210,6 +223,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* Footer */}
       <footer className="border-t bg-slate-950">
