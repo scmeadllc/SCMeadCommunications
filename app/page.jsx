@@ -54,7 +54,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Remaining Nav Items */}
             <a href="#about" className="hover:text-blue-600">About</a>
             <a href="#contact" className="hover:text-blue-600">Contact</a>
             <a
@@ -64,6 +63,7 @@ export default function Home() {
               Call: (775) 303-3269
             </a>
           </nav>
+
         </div>
       </header>
 
@@ -78,9 +78,9 @@ export default function Home() {
               Structured Cabling & CCTV You Can Depend On.
             </h1>
             <p className="mt-4 max-w-xl text-sm md:text-base text-slate-200">
-              Professional low voltage services for businesses and homeowners in Reno, Sparks,
-              and Carson City. From clean, reliable cabling to CCTV systems that actually
-              work when you need them.
+              Professional low-voltage services for businesses and homeowners in Reno, Sparks,
+              and Carson City. From clean, reliable cabling to CCTV systems that actually work
+              when you need them.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -104,7 +104,7 @@ export default function Home() {
               <li>• Carson City</li>
             </ul>
             <p className="mt-4 text-xs text-slate-300">
-              Need work slightly outside these areas? Reach out and we&apos;ll see what we can do.
+              Need work slightly outside these areas? Reach out and we’ll see what we can do.
             </p>
           </div>
         </div>
@@ -163,11 +163,11 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-slate-900">About S. C. Mead Communications</h2>
           <p className="mt-2 text-sm text-slate-600">
             S. C. Mead Communications LLC is a low voltage contractor based in Reno, Nevada.
-            With experience dating back to 2008, we&apos;ve worked with major providers and
-            local businesses across Northern Nevada on structured cabling, CCTV, and network projects.
+            With experience dating back to 2008, we’ve worked with major providers and
+            businesses across Northern Nevada on structured cabling, CCTV, and networking projects.
           </p>
           <p className="mt-2 text-sm text-slate-600">
-            The focus is simple: do clean, reliable work that&apos;s built to last and easy to service later.
+            The focus is simple: do clean, reliable work that’s built to last and easy to service later.
           </p>
         </div>
       </section>
@@ -177,7 +177,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-12">
           <h2 className="text-2xl font-bold">Request a Free Estimate</h2>
           <p className="mt-2 text-sm text-slate-200">
-            Tell us a bit about your project and we&apos;ll follow up to schedule a time to talk.
+            Tell us a bit about your project and we’ll follow up to schedule a time to talk.
           </p>
 
           <form
