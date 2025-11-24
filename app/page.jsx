@@ -11,8 +11,8 @@ export default function Home() {
             <Image
               src="/FullLogo_Transparent (1).png"
               alt="S. C. Mead Communications logo"
-              width={96}
-              height={96}
+              width={250}
+              height={250}
               className="h-16 w-auto md:h-20"
             />
 
