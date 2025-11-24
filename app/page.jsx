@@ -1,19 +1,26 @@
 import Image from "next/image";
 
 export default function Home() {
+  return (
+    <main className="min-h-screen bg-slate-50 text-slate-900 pt-20">
+
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
             {/* Header */}
-      <header className="border-b bg-white">
+      {/* Header */}
+<header className="fixed inset-x-0 top-0 z-50 border-b bg-white/95 backdrop-blur">
+
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
-            <Image
-              src="/FullLogo_Transparent (1).png"
-              alt="S. C. Mead Communications logo"
-              width={48}
-              height={48}
-            />
+           <Image
+  src="/FullLogo_Transparent (1).png"
+  alt="S. C. Mead Communications logo"
+  width={96}
+  height={96}
+  className="h-16 w-auto md:h-20"
+/>
+
             <div className="flex flex-col">
               <div className="text-sm font-semibold tracking-wide text-slate-800">
                 S. C. Mead Communications LLC
