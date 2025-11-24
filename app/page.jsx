@@ -4,17 +4,67 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 pt-20">
 
-      {/* Header */}
-      <header className="fixed inset-x-0 top-0 z-50 border-b bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <div className="flex items-center gap-3">
-            <Image
-  src="/FullLogo_Transparent (1).png"
-  alt="S. C. Mead Communications logo"
-  width={180}
-  height={180}
-  className="h-28 w-auto md:h-32"
-/>
+     <header className="fixed inset-x-0 top-0 z-50 border-b bg-white/95 backdrop-blur">
+  <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+    {/* Logo + Company Name */}
+    <div className="flex items-center gap-3">
+      <Image
+        src="/FullLogo_Transparent (1).png"
+        alt="S. C. Mead Communications logo"
+        width={180}
+        height={180}
+        className="h-28 w-auto md:h-32"
+      />
+      <div className="flex flex-col">
+        <div className="text-sm font-semibold tracking-wide text-slate-800">
+          S. C. Mead Communications LLC
+        </div>
+        <div className="text-xs text-slate-500">
+          Structured Cabling & CCTV • Northern Nevada
+        </div>
+      </div>
+    </div>
+
+    {/* Desktop Navigation */}
+    <nav className="hidden items-center gap-6 text-sm text-slate-700 md:flex">
+
+      {/* Dropdown Container */}
+      <div className="relative group">
+        <button className="hover:text-blue-600">Services ▾</button>
+
+        {/* Dropdown Menu */}
+        <div className="absolute left-0 top-full hidden w-56 flex-col rounded-md border bg-white py-2 shadow-lg group-hover:flex">
+          <a href="/services/structured-cabling" className="px-4 py-2 text-sm hover:bg-slate-100">
+            Structured Cabling
+          </a>
+          <a href="/services/cctv" className="px-4 py-2 text-sm hover:bg-slate-100">
+            CCTV / Camera Systems
+          </a>
+          <a href="/services/wifi-networking" className="px-4 py-2 text-sm hover:bg-slate-100">
+            Wi-Fi & Networking
+          </a>
+          <a href="/services/audio-av" className="px-4 py-2 text-sm hover:bg-slate-100">
+            Audio / A/V
+          </a>
+          <a href="/services/low-voltage-support" className="px-4 py-2 text-sm hover:bg-slate-100">
+            Low Voltage Support
+          </a>
+        </div>
+      </div>
+
+      {/* Remaining Nav Items */}
+      <a href="/#about" className="hover:text-blue-600">About</a>
+      <a href="/#contact" className="hover:text-blue-600">Contact</a>
+      <a
+        href="tel:7753033269"
+        className="rounded-md bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-500"
+      >
+        Call: (775) 303-3269
+      </a>
+    </nav>
+  </div>
+</header>
+
 
 
             <div className="flex flex-col">
