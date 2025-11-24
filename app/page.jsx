@@ -4,69 +4,19 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 pt-20">
 
-     <header className="fixed inset-x-0 top-0 z-50 border-b bg-white/95 backdrop-blur">
-  <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-    {/* Logo + Company Name */}
-    <div className="flex items-center gap-3">
-      <Image
-        src="/FullLogo_Transparent (1).png"
-        alt="S. C. Mead Communications logo"
-        width={180}
-        height={180}
-        className="h-28 w-auto md:h-32"
-      />
-      <div className="flex flex-col">
-        <div className="text-sm font-semibold tracking-wide text-slate-800">
-          S. C. Mead Communications LLC
-        </div>
-        <div className="text-xs text-slate-500">
-          Structured Cabling & CCTV • Northern Nevada
-        </div>
-      </div>
-    </div>
+      {/* Header */}
+      <header className="fixed inset-x-0 top-0 z-50 border-b bg-white/95 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
 
-    {/* Desktop Navigation */}
-    <nav className="hidden items-center gap-6 text-sm text-slate-700 md:flex">
-
-      {/* Dropdown Container */}
-      <div className="relative group">
-        <button className="hover:text-blue-600">Services ▾</button>
-
-        {/* Dropdown Menu */}
-        <div className="absolute left-0 top-full hidden w-56 flex-col rounded-md border bg-white py-2 shadow-lg group-hover:flex">
-          <a href="/services/structured-cabling" className="px-4 py-2 text-sm hover:bg-slate-100">
-            Structured Cabling
-          </a>
-          <a href="/services/cctv" className="px-4 py-2 text-sm hover:bg-slate-100">
-            CCTV / Camera Systems
-          </a>
-          <a href="/services/wifi-networking" className="px-4 py-2 text-sm hover:bg-slate-100">
-            Wi-Fi & Networking
-          </a>
-          <a href="/services/audio-av" className="px-4 py-2 text-sm hover:bg-slate-100">
-            Audio / A/V
-          </a>
-          <a href="/services/low-voltage-support" className="px-4 py-2 text-sm hover:bg-slate-100">
-            Low Voltage Support
-          </a>
-        </div>
-      </div>
-
-      {/* Remaining Nav Items */}
-      <a href="/#about" className="hover:text-blue-600">About</a>
-      <a href="/#contact" className="hover:text-blue-600">Contact</a>
-      <a
-        href="tel:7753033269"
-        className="rounded-md bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-500"
-      >
-        Call: (775) 303-3269
-      </a>
-    </nav>
-  </div>
-</header>
-
-
-
+          {/* Logo + Company Name */}
+          <div className="flex items-center gap-3">
+            <Image
+              src="/FullLogo_Transparent (1).png"
+              alt="S. C. Mead Communications logo"
+              width={180}
+              height={180}
+              className="h-20 w-auto md:h-32"
+            />
             <div className="flex flex-col">
               <div className="text-sm font-semibold tracking-wide text-slate-800">
                 S. C. Mead Communications LLC
@@ -77,8 +27,34 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hidden items-center gap-4 text-sm text-slate-700 md:flex">
-            <a href="#services" className="hover:text-blue-600">Services</a>
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-6 text-sm text-slate-700 md:flex">
+
+            {/* Dropdown Container */}
+            <div className="relative group">
+              <button className="hover:text-blue-600">Services ▾</button>
+
+              {/* Dropdown Menu */}
+              <div className="absolute left-0 top-full hidden w-56 flex-col rounded-md border bg-white py-2 shadow-lg group-hover:flex">
+                <a href="/services/structured-cabling" className="px-4 py-2 text-sm hover:bg-slate-100">
+                  Structured Cabling
+                </a>
+                <a href="/services/cctv" className="px-4 py-2 text-sm hover:bg-slate-100">
+                  CCTV / Camera Systems
+                </a>
+                <a href="/services/wifi-networking" className="px-4 py-2 text-sm hover:bg-slate-100">
+                  Wi-Fi & Networking
+                </a>
+                <a href="/services/audio-av" className="px-4 py-2 text-sm hover:bg-slate-100">
+                  Audio / A/V
+                </a>
+                <a href="/services/low-voltage-support" className="px-4 py-2 text-sm hover:bg-slate-100">
+                  Low Voltage Support
+                </a>
+              </div>
+            </div>
+
+            {/* Remaining Nav Items */}
             <a href="#about" className="hover:text-blue-600">About</a>
             <a href="#contact" className="hover:text-blue-600">Contact</a>
             <a
@@ -87,7 +63,7 @@ export default function Home() {
             >
               Call: (775) 303-3269
             </a>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -138,47 +114,46 @@ export default function Home() {
       <section id="services" className="mx-auto max-w-6xl px-4 py-12">
         <h2 className="text-2xl font-bold text-slate-900">Services</h2>
         <p className="mt-2 text-sm text-slate-600">
-          Low voltage and network infrastructure services for commercial and residential projects.
+          Professional low-voltage services for homes and businesses across Northern Nevada.
         </p>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <div className="rounded-lg border bg-white p-5 shadow-sm">
+        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+          <a href="/services/structured-cabling" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
             <h3 className="text-lg font-semibold text-slate-900">Structured Cabling</h3>
             <p className="mt-2 text-sm text-slate-600">
-              Clean, organized cabling for offices, shops, and industrial spaces.
+              Cat6, coax, speaker wire, LV power, racks, cleanup, testing, and more.
             </p>
-            <ul className="mt-3 space-y-1 text-xs text-slate-600">
-              <li>• Cat5e, Cat6, and fiber optic runs</li>
-              <li>• Patch panels, racks, and terminations</li>
-              <li>• Testing, labeling, and documentation</li>
-            </ul>
-          </div>
+          </a>
 
-          <div className="rounded-lg border bg-white p-5 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">CCTV & Security Cameras</h3>
+          <a href="/services/cctv" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
+            <h3 className="text-lg font-semibold text-slate-900">CCTV / Camera Systems</h3>
             <p className="mt-2 text-sm text-slate-600">
-              Camera systems installed and aimed properly, so you get the footage you need.
+              Camera installs, upgrades, NVR setup, aiming, and troubleshooting.
             </p>
-            <ul className="mt-3 space-y-1 text-xs text-slate-600">
-              <li>• Commercial and residential CCTV</li>
-              <li>• NVR setup and remote access</li>
-              <li>• Upgrades and re-configurations</li>
-            </ul>
-          </div>
+          </a>
 
-          <div className="rounded-lg border bg-white p-5 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">
-              Network & Low Voltage
-            </h3>
+          <a href="/services/wifi-networking" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
+            <h3 className="text-lg font-semibold text-slate-900">Wi-Fi & Networking</h3>
             <p className="mt-2 text-sm text-slate-600">
-              Support for the low voltage side of your network and systems.
+              Access points, mesh Wi-Fi, Ethernet drops, switches, and router installs.
             </p>
-            <ul className="mt-3 space-y-1 text-xs text-slate-600">
-              <li>• Switches, patching, and cleanup work</li>
-              <li>• Wi-Fi access point cabling</li>
-              <li>• Troubleshooting existing wiring</li>
-            </ul>
-          </div>
+          </a>
+
+          <a href="/services/audio-av" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
+            <h3 className="text-lg font-semibold text-slate-900">Audio / A/V</h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Speaker installs, A/V wiring, TV location cabling, and rack cleanup.
+            </p>
+          </a>
+
+          <a href="/services/low-voltage-support" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
+            <h3 className="text-lg font-semibold text-slate-900">Low Voltage Support</h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Site walks, consulting, troubleshooting, and small LV projects.
+            </p>
+          </a>
+
         </div>
       </section>
 
@@ -257,10 +232,16 @@ export default function Home() {
           <div className="mt-8 space-y-1 text-xs text-slate-300">
             <div>Based in Reno, NV • Serving Reno, Sparks, and Carson City</div>
             <div>
-              Phone: <a href="tel:7753033269" className="text-blue-300 hover:underline">(775) 303-3269</a>
+              Phone:{" "}
+              <a href="tel:7753033269" className="text-blue-300 hover:underline">
+                (775) 303-3269
+              </a>
             </div>
             <div>
-              Email: <a href="mailto:scmeadllc@gmail.com" className="text-blue-300 hover:underline">scmeadllc@gmail.com</a>
+              Email:{" "}
+              <a href="mailto:scmeadllc@gmail.com" className="text-blue-300 hover:underline">
+                scmeadllc@gmail.com
+              </a>
             </div>
           </div>
         </div>
