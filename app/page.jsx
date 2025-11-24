@@ -104,7 +104,7 @@ export default function Home() {
               <li>• Carson City</li>
             </ul>
             <p className="mt-4 text-xs text-slate-300">
-              Need work slightly outside these areas? Reach out and we’ll see what we can do.
+              Need work slightly outside these areas? Reach out and we&apos;ll see what we can do.
             </p>
           </div>
         </div>
@@ -119,35 +119,50 @@ export default function Home() {
 
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-          <a href="/services/structured-cabling" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
+          <a
+            href="/services/structured-cabling"
+            className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
+          >
             <h3 className="text-lg font-semibold text-slate-900">Structured Cabling</h3>
             <p className="mt-2 text-sm text-slate-600">
               Cat6, coax, speaker wire, LV power, racks, cleanup, testing, and more.
             </p>
           </a>
 
-          <a href="/services/cctv" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
+          <a
+            href="/services/cctv"
+            className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
+          >
             <h3 className="text-lg font-semibold text-slate-900">CCTV / Camera Systems</h3>
             <p className="mt-2 text-sm text-slate-600">
               Camera installs, upgrades, NVR setup, aiming, and troubleshooting.
             </p>
           </a>
 
-          <a href="/services/wifi-networking" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
+          <a
+            href="/services/wifi-networking"
+            className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
+          >
             <h3 className="text-lg font-semibold text-slate-900">Wi-Fi & Networking</h3>
             <p className="mt-2 text-sm text-slate-600">
               Access points, mesh Wi-Fi, Ethernet drops, switches, and router installs.
             </p>
           </a>
 
-          <a href="/services/audio-av" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
+          <a
+            href="/services/audio-av"
+            className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
+          >
             <h3 className="text-lg font-semibold text-slate-900">Audio / A/V</h3>
             <p className="mt-2 text-sm text-slate-600">
               Speaker installs, A/V wiring, TV location cabling, and rack cleanup.
             </p>
           </a>
 
-          <a href="/services/low-voltage-support" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
+          <a
+            href="/services/low-voltage-support"
+            className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
+          >
             <h3 className="text-lg font-semibold text-slate-900">Low Voltage Support</h3>
             <p className="mt-2 text-sm text-slate-600">
               Site walks, consulting, troubleshooting, and small LV projects.
@@ -163,11 +178,11 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-slate-900">About S. C. Mead Communications</h2>
           <p className="mt-2 text-sm text-slate-600">
             S. C. Mead Communications LLC is a low voltage contractor based in Reno, Nevada.
-            With experience dating back to 2008, we’ve worked with major providers and
+            With experience dating back to 2008, we&apos;ve worked with major providers and
             businesses across Northern Nevada on structured cabling, CCTV, and networking projects.
           </p>
           <p className="mt-2 text-sm text-slate-600">
-            The focus is simple: do clean, reliable work that’s built to last and easy to service later.
+            The focus is simple: do clean, reliable work that&apos;s built to last and easy to service later.
           </p>
         </div>
       </section>
@@ -177,7 +192,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 py-12">
           <h2 className="text-2xl font-bold">Request a Free Estimate</h2>
           <p className="mt-2 text-sm text-slate-200">
-            Tell us a bit about your project and we’ll follow up to schedule a time to talk.
+            Tell us a bit about your project and we&apos;ll follow up to schedule a time to talk.
           </p>
 
           <form
