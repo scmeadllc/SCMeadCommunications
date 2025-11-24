@@ -4,22 +4,17 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 pt-20">
 
-
-  return (
-    <main className="min-h-screen bg-slate-50 text-slate-900">
-            {/* Header */}
       {/* Header */}
-<header className="fixed inset-x-0 top-0 z-50 border-b bg-white/95 backdrop-blur">
-
+      <header className="fixed inset-x-0 top-0 z-50 border-b bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
-           <Image
-  src="/FullLogo_Transparent (1).png"
-  alt="S. C. Mead Communications logo"
-  width={96}
-  height={96}
-  className="h-16 w-auto md:h-20"
-/>
+            <Image
+              src="/FullLogo_Transparent (1).png"
+              alt="S. C. Mead Communications logo"
+              width={96}
+              height={96}
+              className="h-16 w-auto md:h-20"
+            />
 
             <div className="flex flex-col">
               <div className="text-sm font-semibold tracking-wide text-slate-800">
@@ -30,16 +25,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+
           <div className="hidden items-center gap-4 text-sm text-slate-700 md:flex">
-            <a href="#services" className="hover:text-blue-600">
-              Services
-            </a>
-            <a href="#about" className="hover:text-blue-600">
-              About
-            </a>
-            <a href="#contact" className="hover:text-blue-600">
-              Contact
-            </a>
+            <a href="#services" className="hover:text-blue-600">Services</a>
+            <a href="#about" className="hover:text-blue-600">About</a>
+            <a href="#contact" className="hover:text-blue-600">Contact</a>
             <a
               href="tel:7753033269"
               className="rounded-md bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-500"
@@ -49,7 +39,6 @@ export default function Home() {
           </div>
         </div>
       </header>
-
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
@@ -78,13 +67,10 @@ export default function Home() {
               </div>
             </div>
           </div>
+
           <div className="flex-1 rounded-lg border border-slate-700 bg-slate-900/50 p-5 text-sm text-slate-200">
-            <h2 className="text-sm font-semibold text-blue-200">
-              Service Area
-            </h2>
-            <p className="mt-2">
-              Based in Reno, Nevada and serving nearby communities.
-            </p>
+            <h2 className="text-sm font-semibold text-blue-200">Service Area</h2>
+            <p className="mt-2">Based in Reno, Nevada and serving nearby communities.</p>
             <ul className="mt-3 space-y-1 text-xs">
               <li>• Reno</li>
               <li>• Sparks</li>
@@ -106,9 +92,7 @@ export default function Home() {
 
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="rounded-lg border bg-white p-5 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">
-              Structured Cabling
-            </h3>
+            <h3 className="text-lg font-semibold text-slate-900">Structured Cabling</h3>
             <p className="mt-2 text-sm text-slate-600">
               Clean, organized cabling for offices, shops, and industrial spaces.
             </p>
@@ -120,9 +104,7 @@ export default function Home() {
           </div>
 
           <div className="rounded-lg border bg-white p-5 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">
-              CCTV & Security Cameras
-            </h3>
+            <h3 className="text-lg font-semibold text-slate-900">CCTV & Security Cameras</h3>
             <p className="mt-2 text-sm text-slate-600">
               Camera systems installed and aimed properly, so you get the footage you need.
             </p>
@@ -156,19 +138,15 @@ export default function Home() {
           <p className="mt-2 text-sm text-slate-600">
             S. C. Mead Communications LLC is a low voltage contractor based in Reno, Nevada.
             With experience dating back to 2008, we&apos;ve worked with major providers and
-            local businesses across Northern Nevada on structured cabling, CCTV, and network
-            projects.
+            local businesses across Northern Nevada on structured cabling, CCTV, and network projects.
           </p>
           <p className="mt-2 text-sm text-slate-600">
-            The focus is simple: do clean, reliable work that&apos;s built to last and easy
-            to service later. Whether it&apos;s a small cleanup or a new build, the goal is to
-            leave you with a system that just works.
+            The focus is simple: do clean, reliable work that&apos;s built to last and easy to service later.
           </p>
         </div>
       </section>
 
       {/* Contact */}
-         {/* Contact */}
       <section id="contact" className="bg-slate-900 text-white">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <h2 className="text-2xl font-bold">Request a Free Estimate</h2>
@@ -228,21 +206,14 @@ export default function Home() {
           <div className="mt-8 space-y-1 text-xs text-slate-300">
             <div>Based in Reno, NV • Serving Reno, Sparks, and Carson City</div>
             <div>
-              Phone:{" "}
-              <a href="tel:7753033269" className="text-blue-300 hover:underline">
-                (775) 303-3269
-              </a>
+              Phone: <a href="tel:7753033269" className="text-blue-300 hover:underline">(775) 303-3269</a>
             </div>
             <div>
-              Email:{" "}
-              <a href="mailto:scmeadllc@gmail.com" className="text-blue-300 hover:underline">
-                scmeadllc@gmail.com
-              </a>
+              Email: <a href="mailto:scmeadllc@gmail.com" className="text-blue-300 hover:underline">scmeadllc@gmail.com</a>
             </div>
           </div>
         </div>
       </section>
-
 
       {/* Footer */}
       <footer className="border-t bg-slate-950">
@@ -256,6 +227,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
     </main>
   );
 }
