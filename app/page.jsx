@@ -1,15 +1,26 @@
+import Image from "next/image";
+
 export default function Home() {
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
-      {/* Header */}
+            {/* Header */}
       <header className="border-b bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <div className="flex flex-col">
-            <div className="text-sm font-semibold tracking-wide text-slate-800">
-              S. C. Mead Communications LLC
-            </div>
-            <div className="text-xs text-slate-500">
-              Structured Cabling & CCTV • Northern Nevada
+          <div className="flex items-center gap-3">
+            <Image
+              src="/FullLogo_Transparent (1).png"
+              alt="S. C. Mead Communications logo"
+              width={48}
+              height={48}
+            />
+            <div className="flex flex-col">
+              <div className="text-sm font-semibold tracking-wide text-slate-800">
+                S. C. Mead Communications LLC
+              </div>
+              <div className="text-xs text-slate-500">
+                Structured Cabling & CCTV • Northern Nevada
+              </div>
             </div>
           </div>
           <div className="hidden items-center gap-4 text-sm text-slate-700 md:flex">
@@ -31,6 +42,7 @@ export default function Home() {
           </div>
         </div>
       </header>
+
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
