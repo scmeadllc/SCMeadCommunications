@@ -1,59 +1,42 @@
-import Link from "next/link";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export const metadata = {
-  title: "Audio / A/V Services | S. C. Mead Communications",
+  title: "Audio / A/V | S. C. Mead Communications",
   description:
-    "Professional audio and A/V services in Reno, Sparks, and Carson City. Speaker installs, cabling, TV location wiring, and A/V rack cleanup.",
+    "Professional speaker installation, A/V wiring, TV location cabling, rack cleanup, and low-voltage audio services.",
 };
 
 export default function AudioAVPage() {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900">
+    <>
+      <Header />
+      <main className="min-h-screen bg-slate-50 text-slate-900 pt-24 px-4">
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-        <div className="mx-auto max-w-6xl px-4 py-20">
-          <h1 className="text-4xl font-extrabold">Audio / A/V Services</h1>
-          <p className="mt-3 max-w-2xl text-slate-300">
-            Clean, professional installations for speakers, A/V wiring, and media equipment
-            in homes and businesses.
+        <div className="mx-auto max-w-4xl py-10">
+          <h1 className="text-3xl font-bold text-slate-900">Audio / A/V</h1>
+          <p className="mt-3 text-slate-600 text-sm">
+            Clean, reliable A/V wiring and speaker installs for homes and businesses.
           </p>
-        </div>
-      </section>
 
-      {/* Content */}
-      <section className="mx-auto max-w-6xl px-4 py-12 space-y-8">
+          <h2 className="mt-8 text-xl font-semibold">Services Offered</h2>
+          <ul className="mt-4 space-y-2 text-sm text-slate-700">
+            <li>• Speaker installation (ceiling, wall, indoor/outdoor)</li>
+            <li>• A/V wiring and low-voltage routing</li>
+            <li>• TV mounting cabling (wire-behind-wall)</li>
+            <li>• AV rack cleanup and rewiring</li>
+          </ul>
 
-        <div className="space-y-3">
-          <h2 className="text-2xl font-bold text-slate-900">A/V Services</h2>
-          <p className="text-sm text-slate-700">
-            Whether you're wiring a new space or improving an existing setup, we ensure your
-            audio and video systems are neat, reliable, and easy to use.
-          </p>
-        </div>
-
-        <ul className="space-y-2 text-sm text-slate-700">
-          <li>• Speaker wire runs and terminations</li>
-          <li>• In-ceiling and wall-mount speaker installations</li>
-          <li>• TV location cabling (HDMI, Cat6, coax)</li>
-          <li>• A/V rack wiring and cleanup</li>
-        </ul>
-
-        <div className="mt-10">
           <a
             href="/#contact"
-            className="inline-flex items-center rounded-md bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-500"
+            className="inline-block mt-8 rounded-md bg-blue-600 px-5 py-2.5 text-white text-sm font-semibold hover:bg-blue-500"
           >
             Request a Free Estimate
           </a>
         </div>
 
-        <div className="pt-8 text-xs text-slate-500">
-          Serving Reno, Sparks, and Carson City, Nevada.
-        </div>
-
-      </section>
-
-    </main>
+      </main>
+      <Footer />
+    </>
   );
 }
