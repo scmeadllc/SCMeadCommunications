@@ -9,12 +9,13 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
             <Image
-              src="/FullLogo_Transparent (1).png"
-              alt="S. C. Mead Communications logo"
-              width={250}
-              height={250}
-              className="h-16 w-auto md:h-20"
-            />
+  src="/FullLogo_Transparent (1).png"
+  alt="S. C. Mead Communications logo"
+  width={180}
+  height={180}
+  className="h-28 w-auto md:h-32"
+/>
+
 
             <div className="flex flex-col">
               <div className="text-sm font-semibold tracking-wide text-slate-800">
