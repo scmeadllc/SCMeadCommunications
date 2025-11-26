@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { getAllReviews } from "../components/ReviewCarousel";
+import { allReviews } from "../data/reviews";
 
 export const metadata = {
   title: "Testimonials | S. C. Mead Communications",
@@ -9,16 +9,19 @@ export const metadata = {
 };
 
 export default function TestimonialsPage() {
-  const reviews = getAllReviews();
+  const reviews = allReviews;
 
   return (
     <>
       <Header />
       <main className="min-h-screen bg-slate-50 text-slate-900 pt-32 px-4">
         <div className="mx-auto max-w-5xl py-10">
-          <h1 className="text-3xl font-bold text-slate-900">Customer Testimonials</h1>
+          <h1 className="text-3xl font-bold text-slate-900">
+            Customer Testimonials
+          </h1>
           <p className="mt-3 text-sm text-slate-600">
-            A collection of feedback from homeowners and businesses across Northern Nevada.
+            A collection of feedback from homeowners and businesses across
+            Northern Nevada.
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -28,8 +31,12 @@ export default function TestimonialsPage() {
                 className="rounded-lg border bg-white p-5 shadow-sm flex flex-col justify-between"
               >
                 <div>
-                  <div className="text-yellow-500 text-sm">{"★★★★★".slice(0, r.rating || 5)}</div>
-                  <p className="mt-2 text-sm text-slate-800 italic">“{r.review}”</p>
+                  <div className="text-yellow-500 text-sm">
+                    {"★★★★★".slice(0, r.rating || 5)}
+                  </div>
+                  <p className="mt-2 text-sm text-slate-800 italic">
+                    “{r.review}”
+                  </p>
                 </div>
                 <div className="mt-3 text-xs text-slate-700">
                   <div className="font-semibold">
