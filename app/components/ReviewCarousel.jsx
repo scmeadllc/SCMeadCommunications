@@ -1,106 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const allReviews = [
-  // Angi reviews
-  {
-    source: "Angi",
-    name: "Robert E.",
-    city: "Sparks, NV",
-    rating: 5,
-    review:
-      "Shane did a great job. I had him extend my network in my home. He was professional and considerate while completing the work.",
-  },
-  {
-    source: "Angi",
-    name: "Ruell M.",
-    city: "Sparks, NV",
-    rating: 5,
-    review: "Shane is excellent, prompt, professional and great quality.",
-  },
-  {
-    source: "Angi",
-    name: "Joe C.",
-    city: "Reno, NV",
-    rating: 5,
-    review:
-      "Quick, friendly. Helped with an additional issue and it made a huge difference! Would recommend!!",
-  },
-  {
-    source: "Angi",
-    name: "Lonnie R.",
-    city: "Sparks, NV",
-    rating: 5,
-    review: "He got the job without calling people.",
-  },
-  {
-    source: "Angi",
-    name: "Grant S.",
-    city: "Sparks, NV",
-    rating: 5,
-    review: "Good work and efficient.",
-  },
-  {
-    source: "Angi",
-    name: "Rafael P.",
-    city: "Reno, NV",
-    rating: 5,
-    review: "Did a great job. Awesome work, would highly recommend.",
-  },
-  {
-    source: "Angi",
-    name: "Jody G.",
-    city: "Reno, NV",
-    rating: 5,
-    review:
-      "Shane did a fantastic job hanging many TVs and the associated sound bars throughout our new home. He is very professional and highly conscientious of the placement aesthetics including articulation, balance, and hiding wires. He answered all our questions and cleaned up as if he was never here.",
-  },
-  {
-    source: "Angi",
-    name: "Brent R.",
-    city: "Reno, NV",
-    rating: 5,
-    review:
-      "Provided the services as they were originally discussed. Arrived promptly and was very professional and courteous.",
-  },
-  {
-    source: "Angi",
-    name: "Steve A.",
-    city: "Reno, NV",
-    rating: 5,
-    review: "They did a great job! Highly recommend them!!!",
-  },
-  {
-    source: "Angi",
-    name: "Jerry H.",
-    city: "Reno, NV",
-    rating: 5,
-    review:
-      "Shane is knowledgeable and professional. He came by to assess the work beforehand, was punctual, and very clear about his estimated costs.",
-  },
-  // Google reviews
-  {
-    source: "Google",
-    name: "Paige B.",
-    city: "Reno, NV",
-    rating: 5,
-    review:
-      "Highly recommend! Sean did a great job for us. He was fast, efficient, and insisted on cleaning up all the mess left behind from running lines. Very happy we found him.",
-  },
-  {
-    source: "Google",
-    name: "Munro M. Bonnell",
-    city: "Reno, NV",
-    rating: 5,
-    review:
-      "Shane’s services were top notch! He assessed my network, gave me options, completed the work cleanly, communicated throughout, and verified full functionality. His installation of Ethernet wall plugs was super clean and professional. I highly recommend him!",
-  },
-];
-
-export function getAllReviews() {
-  return allReviews;
-}
+import { allReviews } from "../data/reviews";
 
 function truncateWords(text, maxWords) {
   const words = text.split(/\s+/);
@@ -125,15 +26,17 @@ export default function ReviewCarousel({
   }, [reviews.length, autoAdvanceMs]);
 
   const current = reviews[index];
-
   const stars = "★★★★★".slice(0, current.rating || 5);
 
   return (
     <section className="bg-white border-t border-slate-200">
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <h2 className="text-2xl font-bold text-slate-900">What Clients Are Saying</h2>
+        <h2 className="text-2xl font-bold text-slate-900">
+          What Clients Are Saying
+        </h2>
         <p className="mt-2 text-sm text-slate-600">
-          A few words from homeowners and businesses we&apos;ve worked with in Northern Nevada.
+          A few words from homeowners and businesses we&apos;ve worked with in
+          Northern Nevada.
         </p>
 
         <div className="mt-6 rounded-lg border bg-slate-50 p-6 shadow-sm">
