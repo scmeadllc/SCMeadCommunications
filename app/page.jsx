@@ -1,18 +1,16 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Image from "next/image";
+import ReviewCarousel from "./components/ReviewCarousel";
 
 export default function Home() {
   return (
     <>
       <Header />
 
-      <main className="min-h-screen bg-slate-50 text-slate-900 pt-20">
-
+      <main className="min-h-screen bg-slate-50 text-slate-900 pt-32">
         {/* Hero */}
         <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
           <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 md:flex-row md:items-center">
-            
             <div className="flex-1">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-300">
                 Northern Nevada Low Voltage Contractor
@@ -21,9 +19,9 @@ export default function Home() {
                 Structured Cabling & CCTV You Can Depend On.
               </h1>
               <p className="mt-4 max-w-xl text-sm md:text-base text-slate-200">
-                Professional low-voltage services for businesses and homeowners in Reno, Sparks,
-                and Carson City. From clean, reliable cabling to CCTV systems that actually work
-                when you need them.
+                Professional low-voltage services for businesses and homeowners
+                in Reno, Sparks, and Carson City. From clean, reliable cabling
+                to CCTV systems that actually work when you need them.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
@@ -40,17 +38,19 @@ export default function Home() {
 
             <div className="flex-1 rounded-lg border border-slate-700 bg-slate-900/50 p-5 text-sm text-slate-200">
               <h2 className="text-sm font-semibold text-blue-200">Service Area</h2>
-              <p className="mt-2">Based in Reno, Nevada and serving nearby communities.</p>
+              <p className="mt-2">
+                Based in Reno, Nevada and serving nearby communities.
+              </p>
               <ul className="mt-3 space-y-1 text-xs">
                 <li>• Reno</li>
                 <li>• Sparks</li>
                 <li>• Carson City</li>
               </ul>
               <p className="mt-4 text-xs text-slate-300">
-                Need work slightly outside these areas? Reach out and we&apos;ll see what we can do.
+                Need work slightly outside these areas? Reach out and we&apos;ll
+                see what we can do.
               </p>
             </div>
-
           </div>
         </section>
 
@@ -58,60 +58,95 @@ export default function Home() {
         <section id="services" className="mx-auto max-w-6xl px-4 py-12">
           <h2 className="text-2xl font-bold text-slate-900">Services</h2>
           <p className="mt-2 text-sm text-slate-600">
-            Professional low-voltage services for homes and businesses across Northern Nevada.
+            Professional low-voltage services for homes and businesses across
+            Northern Nevada.
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-            <a href="/services/structured-cabling" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-slate-900">Structured Cabling</h3>
+            <a
+              href="/services/structured-cabling"
+              className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
+            >
+              <h3 className="text-lg font-semibold text-slate-900">
+                Structured Cabling
+              </h3>
               <p className="mt-2 text-sm text-slate-600">
-                Cat6, coax, speaker wire, LV power, racks, cleanup, testing, and more.
+                Cat6, coax, speaker wire, LV power, racks, cleanup, testing, and
+                more.
               </p>
             </a>
 
-            <a href="/services/cctv" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-slate-900">CCTV / Camera Systems</h3>
+            <a
+              href="/services/cctv"
+              className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
+            >
+              <h3 className="text-lg font-semibold text-slate-900">
+                CCTV / Camera Systems
+              </h3>
               <p className="mt-2 text-sm text-slate-600">
-                Camera installs, upgrades, NVR setup, aiming, and troubleshooting.
+                Camera installs, upgrades, NVR setup, aiming, and
+                troubleshooting.
               </p>
             </a>
 
-            <a href="/services/wifi-networking" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-slate-900">Wi-Fi & Networking</h3>
+            <a
+              href="/services/wifi-networking"
+              className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
+            >
+              <h3 className="text-lg font-semibold text-slate-900">
+                Wi-Fi & Networking
+              </h3>
               <p className="mt-2 text-sm text-slate-600">
-                Access points, mesh Wi-Fi, Ethernet drops, switches, and router installs.
+                Access points, mesh Wi-Fi, Ethernet drops, switches, and router
+                installs.
               </p>
             </a>
 
-            <a href="/services/audio-av" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-slate-900">Audio / A/V</h3>
+            <a
+              href="/services/audio-av"
+              className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
+            >
+              <h3 className="text-lg font-semibold text-slate-900">
+                Audio / A/V
+              </h3>
               <p className="mt-2 text-sm text-slate-600">
-                Speaker installs, A/V wiring, TV location cabling, and rack cleanup.
+                Speaker installs, A/V wiring, TV location cabling, and rack
+                cleanup.
               </p>
             </a>
 
-            <a href="/services/low-voltage-support" className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-slate-900">Low Voltage Support</h3>
+            <a
+              href="/services/low-voltage-support"
+              className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
+            >
+              <h3 className="text-lg font-semibold text-slate-900">
+                Low Voltage Support
+              </h3>
               <p className="mt-2 text-sm text-slate-600">
                 Site walks, consulting, troubleshooting, and small LV projects.
               </p>
             </a>
-
           </div>
         </section>
+
+        {/* Reviews Carousel */}
+        <ReviewCarousel />
 
         {/* About */}
         <section id="about" className="bg-white">
           <div className="mx-auto max-w-6xl px-4 py-12">
-            <h2 className="text-2xl font-bold text-slate-900">About S. C. Mead Communications</h2>
+            <h2 className="text-2xl font-bold text-slate-900">
+              About S. C. Mead Communications
+            </h2>
             <p className="mt-2 text-sm text-slate-600">
-              S. C. Mead Communications LLC is a low voltage contractor based in Reno, Nevada.
-              With experience dating back to 2008, we&apos;ve worked with major providers and
-              businesses across Northern Nevada on structured cabling, CCTV, and networking projects.
+              S. C. Mead Communications LLC is a low voltage contractor based in
+              Reno, Nevada. With experience dating back to 2008, we&apos;ve
+              worked with major providers and businesses across Northern Nevada
+              on structured cabling, CCTV, and networking projects.
             </p>
             <p className="mt-2 text-sm text-slate-600">
-              The focus is simple: do clean, reliable work that&apos;s built to last and easy to service later.
+              The focus is simple: do clean, reliable work that&apos;s built to
+              last and easy to service later.
             </p>
           </div>
         </section>
@@ -121,7 +156,8 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-4 py-12">
             <h2 className="text-2xl font-bold">Request a Free Estimate</h2>
             <p className="mt-2 text-sm text-slate-200">
-              Tell us a bit about your project and we&apos;ll follow up to schedule a time to talk.
+              Tell us a bit about your project and we&apos;ll follow up to
+              schedule a time to talk.
             </p>
 
             <form
@@ -174,23 +210,30 @@ export default function Home() {
             </form>
 
             <div className="mt-8 space-y-1 text-xs text-slate-300">
-              <div>Based in Reno, NV • Serving Reno, Sparks, and Carson City</div>
+              <div>
+                Based in Reno, NV • Serving Reno, Sparks, and Carson City
+              </div>
               <div>
                 Phone:{" "}
-                <a href="tel:7753033269" className="text-blue-300 hover:underline">
+                <a
+                  href="tel:7753033269"
+                  className="text-blue-300 hover:underline"
+                >
                   (775) 303-3269
                 </a>
               </div>
               <div>
                 Email:{" "}
-                <a href="mailto:scmeadllc@gmail.com" className="text-blue-300 hover:underline">
+                <a
+                  href="mailto:scmeadllc@gmail.com"
+                  className="text-blue-300 hover:underline"
+                >
                   scmeadllc@gmail.com
                 </a>
               </div>
             </div>
           </div>
         </section>
-
       </main>
 
       <Footer />
