@@ -11,13 +11,15 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         {/* Logo + Title */}
         <div className="flex items-center gap-3">
-          <Image
-            src="/FullLogo_Transparent (1).png"
-            alt="S. C. Mead Communications logo"
-            width={180}
-            height={180}
-            className="h-20 w-auto md:h-32"
-          />
+          <a href="/" aria-label="Go to homepage">
+            <Image
+              src="/FullLogo_Transparent (1).png"
+              alt="S. C. Mead Communications logo"
+              width={180}
+              height={180}
+              className="h-20 w-auto md:h-32"
+            />
+          </a>
           <div className="flex flex-col">
             <div className="text-sm font-semibold tracking-wide text-slate-800">
               S. C. Mead Communications LLC
@@ -133,6 +135,7 @@ export default function Header() {
         </nav>
       </div>
 
+      {/* Dark overlay when mobile menu is open */}
       {mobileOpen && (
         <div
           className="fixed inset-0 bg-black/40 z-40 md:hidden"
