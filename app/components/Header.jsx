@@ -76,11 +76,48 @@ export default function Header() {
       </div>
 
       {/* MOBILE SLIDE-IN MENU */}
-      <div
-        className={`fixed inset-y-0 right-0 w-64 transform ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 bg-white shadow-xl z-50 border-l border-slate-200`}
-      >
+      {/* MOBILE DRAWER MENU */}
+<div
+  className={`fixed top-0 right-0 h-full w-72 bg-white shadow-xl z-50 transform ${
+    mobileOpen ? "translate-x-0" : "translate-x-full"
+  } transition-transform duration-300`}
+>
+  <div className="flex flex-col p-6 space-y-5 text-slate-800">
+
+    {/* Close Button */}
+    <button
+      onClick={() => setMobileOpen(false)}
+      className="self-end text-3xl text-slate-700"
+    >
+      ×
+    </button>
+
+    <Link href="/services/structured-cabling" onClick={() => setMobileOpen(false)}>
+      Structured Cabling
+    </Link>
+    <Link href="/services/cctv" onClick={() => setMobileOpen(false)}>
+      CCTV / Camera Systems
+    </Link>
+    <Link href="/services/wifi-networking" onClick={() => setMobileOpen(false)}>
+      Wi-Fi & Networking
+    </Link>
+    <Link href="/services/audio-av" onClick={() => setMobileOpen(false)}>
+      Audio / A/V
+    </Link>
+    <Link href="/services/low-voltage-support" onClick={() => setMobileOpen(false)}>
+      Low Voltage Support
+    </Link>
+
+    <hr className="border-slate-300" />
+
+    <Link href="/#about" onClick={() => setMobileOpen(false)}>About</Link>
+    <Link href="/#contact" onClick={() => setMobileOpen(false)}>Contact</Link>
+    <a href="tel:7753033269" className="font-semibold text-blue-600">
+      Call: (775) 303-3269
+    </a>
+  </div>
+</div>
+
         <div className="flex flex-col p-4 space-y-4 text-slate-800">
 
           {/* Close Button */}
@@ -118,12 +155,13 @@ export default function Header() {
       </div>
 
       {/* DARK OVERLAY WHEN MENU IS OPEN */}
-      {mobileOpen && (
-        <div
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
-          onClick={() => setMobileOpen(false)}
-        ></div>
-      )}
+    {mobileOpen && (
+  <div
+    className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+    onClick={() => setMobileOpen(false)}
+  />
+)}
+
     </header>
   );
 }
