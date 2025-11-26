@@ -1,13 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 export default function ImageCarousel({
   images,
   alt = "Service photo",
   intervalMs = 5000,
-  height = 400,
 }) {
   const [index, setIndex] = useState(0);
 
@@ -23,28 +21,18 @@ export default function ImageCarousel({
 
   return (
     <div className="mt-8">
-      <div
-        className="relative w-full overflow-hidden rounded-lg border border-slate-200 bg-black"
-        style={{ height: `${height}px` }}
-      >
+      <div className="relative w-full overflow-hidden rounded-lg border border-slate-200 bg-black">
         {images.map((src, i) => {
           const encodedSrc = encodeURI(src);
           return (
-            <div
+            <img
               key={src + i}
-              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-                i === index ? "opacity-100" : "opacity-0"
+              src={encodedSrc}
+              alt={alt}
+              className={`w-full h-auto object-contain transition-opacity duration-700 ease-in-out ${
+                i === index ? "opacity-100" : "opacity-0 absolute inset-0"
               }`}
-            >
-              <Image
-                src={encodedSrc}
-                alt={alt}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority={i === 0}
-              />
-            </div>
+            />
           );
         })}
       </div>
