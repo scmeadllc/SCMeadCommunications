@@ -1,8 +1,9 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import { reviews } from "./data/reviews";
+// app/testimonials/page.jsx
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { allReviews } from "../data/reviews";
 
-function StarRow({ rating = 5 }) {
+function Stars({ rating = 5 }) {
   return (
     <div className="flex items-center gap-1">
       {Array.from({ length: 5 }).map((_, i) => (
@@ -12,152 +13,108 @@ function StarRow({ rating = 5 }) {
           className={`h-4 w-4 ${i < rating ? "text-amber-400" : "text-slate-200"}`}
           fill="currentColor"
         >
-          <path d="M10 15.27 4.18 18.5l1.11-6.49L.59 7.51l6.52-.95L10 .67l2.89 5.89 6.52.95-4.7 4.5 1.11 6.49z" />
+          <path d="M10 15.27 4.18 18.5l1.11-6.49L.59 7.51l6.52-.95L10 .67l2.89 5.89 6.52.95-4.7 4.5 1.11 6.49L10 15.27z" />
         </svg>
       ))}
     </div>
   );
 }
 
-export default function HomePage() {
-  const safeReviews = Array.isArray(reviews) ? reviews : [];
-  const featured = safeReviews[0];
+function formatDate(dateStr) {
+  if (!dateStr) return "";
+  const d = new Date(dateStr);
+  if (Number.isNaN(d.getTime())) return dateStr;
+  return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+}
+
+export default function TestimonialsPage() {
+  const list = Array.isArray(allReviews) ? allReviews : [];
 
   return (
     <>
       <Header />
 
-      {/* Offset for fixed header */}
-      <main className="pt-28 md:pt-32">
-
-        {/* HERO */}
-        <section className="bg-slate-900 text-white">
-          <div className="mx-auto max-w-6xl px-4 py-20">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-              Structured Cabling & Low Voltage Done Right
-            </h1>
-            <p className="mt-6 max-w-2xl text-slate-300 text-lg">
-              Clean installs. Reliable systems. Honest pricing.
-              Serving Reno, Sparks, Carson City and surrounding areas.
-            </p>
-
-            <div className="mt-8 flex gap-4">
-              <a
-                href="#contact"
-                className="rounded-md bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-500"
-              >
-                Request a Free Estimate
-              </a>
-
-              <a
-                href="tel:7753033269"
-                className="rounded-md border border-white/30 px-6 py-3 font-semibold hover:bg-white/10"
-              >
-                Call (775) 303-3269
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* SERVICES */}
-        <section className="bg-white">
-          <div className="mx-auto max-w-6xl px-4 py-20">
-            <h2 className="text-3xl font-bold text-slate-900">
-              Our Services
-            </h2>
-
-            <div className="mt-10 grid gap-8 md:grid-cols-3">
-              <div className="rounded-xl border p-6 shadow-sm">
-                <h3 className="font-semibold text-lg">Structured Cabling</h3>
-                <p className="mt-3 text-slate-600 text-sm">
-                  Ethernet drops, patch panels, clean terminations and labeled installs.
+      {/* Push content below fixed header */}
+      <main className="min-h-screen bg-slate-50 pt-24">
+        <section className="mx-auto max-w-6xl px-4 py-10">
+          <div className="rounded-2xl border bg-white p-6 shadow-sm md:p-10">
+            <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-600">
+                  Testimonials
+                </p>
+                <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
+                  What Clients Are Saying
+                </h1>
+                <p className="mt-3 max-w-2xl text-sm text-slate-600 md:text-base">
+                  A collection of feedback from homeowners and businesses we’ve worked with across
+                  Northern Nevada and beyond.
                 </p>
               </div>
 
-              <div className="rounded-xl border p-6 shadow-sm">
-                <h3 className="font-semibold text-lg">WiFi & Network Setup</h3>
-                <p className="mt-3 text-slate-600 text-sm">
-                  Access points, router configuration, and optimized home/business coverage.
-                </p>
-              </div>
-
-              <div className="rounded-xl border p-6 shadow-sm">
-                <h3 className="font-semibold text-lg">CCTV & Security</h3>
-                <p className="mt-3 text-slate-600 text-sm">
-                  Clean camera installs with reliable recording and remote access.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FEATURED REVIEW */}
-        {featured && (
-          <section className="bg-slate-50">
-            <div className="mx-auto max-w-6xl px-4 py-20">
-              <h2 className="text-3xl font-bold text-slate-900">
-                What Clients Are Saying
-              </h2>
-
-              <div className="mt-10 max-w-3xl rounded-2xl bg-white p-8 shadow-sm border">
-                <StarRow rating={featured.rating || 5} />
-
-                <p className="mt-6 text-slate-700 leading-relaxed">
-                  {featured.text}
-                </p>
-
-                <div className="mt-6 text-sm text-slate-500">
-                  <span className="font-semibold text-slate-900">
-                    {featured.name}
-                  </span>
-                  {featured.location && ` • ${featured.location}`}
-                  {featured.source && ` • ${featured.source}`}
+              <div className="mt-2 flex items-center gap-3 md:mt-0">
+                <div className="rounded-full border bg-slate-50 px-4 py-2 text-sm text-slate-700">
+                  {list.length} review{list.length === 1 ? "" : "s"}
                 </div>
               </div>
+            </div>
 
-              <div className="mt-8">
-                <a
-                  href="/testimonials"
-                  className="text-blue-600 font-semibold hover:text-blue-500"
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {list.map((r) => (
+                <article
+                  key={r.id || `${r.source}-${r.name}-${r.text?.slice?.(0, 12)}`}
+                  className="rounded-2xl border bg-white p-6 shadow-sm transition hover:shadow-md"
                 >
-                  View All Reviews →
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <Stars rating={r.rating ?? 5} />
+                        <span className="text-xs font-semibold text-slate-500">
+                          {r.source || "Review"}
+                        </span>
+                      </div>
+
+                      <div className="mt-2 text-base font-semibold text-slate-900">
+                        {r.name || "Client"}
+                      </div>
+
+                      <div className="mt-1 text-xs text-slate-500">
+                        {(r.city || r.location || "").trim()}
+                        {r.date ? (
+                          <>
+                            <span className="mx-2">•</span>
+                            {formatDate(r.date)}
+                          </>
+                        ) : null}
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-sm leading-relaxed text-slate-700">
+                    {r.text || r.review || ""}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-10 rounded-2xl bg-slate-900 px-6 py-6 text-white md:px-8">
+              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <div className="text-lg font-semibold">Want results like these?</div>
+                  <div className="mt-1 text-sm text-slate-200">
+                    Tell us what you’re working on and we’ll get back to you quickly.
+                  </div>
+                </div>
+                <a
+                  href="/#contact"
+                  className="inline-flex w-fit items-center justify-center rounded-md bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-400"
+                >
+                  Request a Free Estimate
                 </a>
               </div>
             </div>
-          </section>
-        )}
-
-        {/* CONTACT SECTION */}
-        <section id="contact" className="bg-white">
-          <div className="mx-auto max-w-6xl px-4 py-20">
-            <h2 className="text-3xl font-bold text-slate-900">
-              Let’s Get Your Project Done Right
-            </h2>
-
-            <p className="mt-4 text-slate-600 max-w-2xl">
-              Whether it’s a clean Ethernet run, access point install,
-              or full low-voltage setup — we’ll make sure it’s done
-              efficiently and professionally.
-            </p>
-
-            <div className="mt-8 flex gap-4">
-              <a
-                href="tel:7753033269"
-                className="rounded-md bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-500"
-              >
-                Call Now
-              </a>
-
-              <a
-                href="mailto:info@scmeadcommunications.com"
-                className="rounded-md border px-6 py-3 font-semibold hover:bg-slate-50"
-              >
-                Email Us
-              </a>
-            </div>
           </div>
         </section>
-
       </main>
 
       <Footer />
