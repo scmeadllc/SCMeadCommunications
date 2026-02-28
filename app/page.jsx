@@ -1,6 +1,6 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
-import { reviews } from "../data/reviews";
+import Header from "./components/header";
+import Footer from "./components/footer";
+import { reviews } from "./data/reviews";
 
 function StarRow({ rating = 5 }) {
   return (
