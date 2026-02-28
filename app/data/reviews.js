@@ -1,4 +1,15 @@
 export const allReviews = [
+ {
+  id: "yelp-brett-m-2026-02-27",
+  name: "Brett M.",
+  location: "Beresford Park, San Mateo, CA",
+  source: "Yelp",
+  rating: 5,
+  date: "2026-02-27",
+  text:
+    "I needed an access point installed in our house that had an addition. I was able to do most of the Ethernet cables in the house but due to the addition I was not able to get the Ethernet cables into the newer part of the house. I had posted in the Lemon Valley community on Facebook but got some completely ridiculous replies. Shane said he would like to come take a look and provide a quote. Shane arrived on time, quoted the job and explained his experience. After talking with him I also had him relocate some items that Spectrum said could not be moved. Shane's work was fantastic. He was able to run the Ethernet cables, mounted the access point and was able to relocate the Spectrum boxes in a hall closet. Shane was very professional and his quoted price was the final price. I highly recommend Shane and will use him for future work!"
+}
+  
   // Angi reviews
   {
     source: "Angi",
