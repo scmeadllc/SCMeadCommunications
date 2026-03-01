@@ -2,56 +2,140 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { allReviews } from "../data/reviews";
 
-export const metadata = {
-  title: "Testimonials | S. C. Mead Communications",
-  description:
-    "Read what customers in Reno, Sparks, and Carson City are saying about S. C. Mead Communications.",
-};
+function StarRow({ rating = 5 }) {
+  const r = Math.max(0, Math.min(5, Number(rating) || 0));
+  return (
+    <div className="flex items-center gap-1">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg
+          key={i}
+          viewBox="0 0 20 20"
+          className={`h-4 w-4 ${
+            i < r ? "text-amber-400" : "text-slate-200"
+          }`}
+          fill="currentColor"
+        >
+          <path d="M10 15.27 4.18 18.511 5.11 12.41.67 8.09 6.52 7.11 10 1.5l3.48 5.61 5.84.98-4.44 4.32.93 6.1z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return "";
+  const d = new Date(dateStr);
+  if (Number.isNaN(d.getTime())) return dateStr;
+  return d.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
+function getText(r) {
+  return r?.text ?? r?.review ?? "";
+}
+
+function getLocation(r) {
+  return r?.city ?? r?.location ?? "";
+}
 
 export default function TestimonialsPage() {
-  const reviews = allReviews;
+  const reviews = Array.isArray(allReviews) ? allReviews : [];
+
+  // 🔥 Move Yelp review to top if present
+  const sortedReviews = [
+    ...reviews.filter((r) => r.id === "yelp-brett-m-2026-02-27"),
+    ...reviews.filter((r) => r.id !== "yelp-brett-m-2026-02-27"),
+  ];
 
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50 text-slate-900 pt-32 px-4">
-        <div className="mx-auto max-w-5xl py-10">
-          <h1 className="text-3xl font-bold text-slate-900">
-            Customer Testimonials
-          </h1>
-          <p className="mt-3 text-sm text-slate-600">
-            A collection of feedback from homeowners and businesses across
-            Northern Nevada.
-          </p>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {reviews.map((r, idx) => (
-              <div
-                key={idx}
-                className="rounded-lg border bg-white p-5 shadow-sm flex flex-col justify-between"
-              >
-                <div>
-                  <div className="text-yellow-500 text-sm">
-                    {"★★★★★".slice(0, r.rating || 5)}
-                  </div>
-                  <p className="mt-2 text-sm text-slate-800 italic">
-                    “{r.review}”
-                  </p>
-                </div>
-                <div className="mt-3 text-xs text-slate-700">
-                  <div className="font-semibold">
-                    {r.name}
-                    {r.city ? ` • ${r.city}` : ""}
-                  </div>
-                  <div className="text-[11px] uppercase tracking-wide text-slate-500">
-                    {r.source} Review
-                  </div>
-                </div>
+      <main className="min-h-screen bg-slate-50 pt-24">
+        <section className="mx-auto max-w-6xl px-4 py-12">
+          <div className="rounded-2xl border bg-white p-6 shadow-sm md:p-10">
+            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-600">
+                  Testimonials
+                </p>
+                <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
+                  What Clients Are Saying
+                </h1>
+                <p className="mt-3 max-w-2xl text-sm text-slate-600 md:text-base">
+                  Real feedback from homeowners and businesses we've worked with.
+                </p>
               </div>
-            ))}
+
+              <div className="rounded-full border bg-slate-50 px-4 py-2 text-sm text-slate-700">
+                {sortedReviews.length} Reviews
+              </div>
+            </div>
+
+            <div className="mt-10 grid gap-8 md:grid-cols-2">
+              {sortedReviews.map((r) => (
+                <article
+                  key={r.id}
+                  className="rounded-2xl border bg-white p-6 shadow-sm transition hover:shadow-md"
+                >
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <StarRow rating={r.rating} />
+                      <div className="mt-2 text-lg font-semibold text-slate-900">
+                        {r.name}
+                      </div>
+                      <div className="mt-1 text-xs text-slate-500">
+                        {getLocation(r)}
+                        {r.date && (
+                          <>
+                            <span className="mx-2">•</span>
+                            {formatDate(r.date)}
+                          </>
+                        )}
+                      </div>
+                    </div>
+
+                    {r.source && (
+                      <div className="rounded-full border bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
+                        {r.source}
+                      </div>
+                    )}
+                  </div>
+
+                  <p className="mt-4 text-sm leading-relaxed text-slate-700">
+                    {getText(r)}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            {/* Call To Action */}
+            <div className="mt-12 rounded-2xl bg-slate-900 px-8 py-8 text-white">
+              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <div className="text-xl font-semibold">
+                    Ready to get started?
+                  </div>
+                  <div className="mt-1 text-sm text-slate-300">
+                    Tell us about your project and we’ll follow up promptly.
+                  </div>
+                </div>
+
+                <a
+                  href="/#contact"
+                  className="inline-flex w-fit items-center justify-center rounded-md bg-blue-500 px-6 py-2.5 text-sm font-semibold text-white hover:bg-blue-400"
+                >
+                  Request a Free Estimate
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </main>
+
       <Footer />
     </>
   );
