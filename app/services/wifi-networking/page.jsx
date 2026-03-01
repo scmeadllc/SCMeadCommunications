@@ -10,7 +10,7 @@ export const metadata = {
 
 const wifiImages = [
   "/wifi-networking/AP Cam.jpg",
-  "/wifi-networking/Screenshot_20250427_141330_Gallery (1).jpg",
+  "/wifi-networking/resi_ubiquitiAP.jpg",
   "/wifi-networking/pos systems.jpg",
   "/wifi-networking/ups longley before after.png",
   "/wifi-networking/wifi bridge&cam.jpg",
