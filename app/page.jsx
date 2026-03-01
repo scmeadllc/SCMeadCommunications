@@ -142,7 +142,9 @@ export default function Home() {
                 <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
                   Trusted Across Multiple Platforms
                 </p>
-
+<div className="mt-4 text-sm font-semibold text-slate-700 tracking-wide">
+  <span className="text-blue-600">425+</span> completed work orders since inception
+</div>
                 <div className="mt-3 flex flex-wrap items-end gap-3">
                   <div className="text-5xl font-extrabold tracking-tight text-slate-900">
                     {formatOneDecimal(animatedRating)}
