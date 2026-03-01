@@ -1,16 +1,95 @@
-// app/page.jsx
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ReviewCarousel from "./components/ReviewCarousel";
 import { reviews } from "./data/reviews";
 
+/** ---------- Helpers ---------- **/
+function clamp(n, min, max) {
+  return Math.max(min, Math.min(max, n));
+}
+
+function formatOneDecimal(n) {
+  return (Math.round(n * 10) / 10).toFixed(1);
+}
+
+function Stars({ rating = 5 }) {
+  const r = clamp(Number(rating) || 0, 0, 5);
+  return (
+    <div className="flex items-center gap-1" aria-label={`${r} out of 5 stars`}>
+      {Array.from({ length: 5 }).map((_, i) => {
+        const filled = i < Math.round(r);
+        return (
+          <svg
+            key={i}
+            viewBox="0 0 20 20"
+            className={`h-5 w-5 ${filled ? "text-amber-400" : "text-slate-200"}`}
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.17c.969 0 1.371 1.24.588 1.81l-3.374 2.452a1 1 0 00-.364 1.118l1.287 3.966c.3.921-.755 1.688-1.54 1.118l-3.374-2.452a1 1 0 00-1.176 0l-3.374 2.452c-.784.57-1.838-.197-1.539-1.118l1.286-3.966a1 1 0 00-.364-1.118L2.05 9.393c-.783-.57-.38-1.81.588-1.81h4.17a1 1 0 00.95-.69l1.286-3.966z" />
+          </svg>
+        );
+      })}
+    </div>
+  );
+}
+
+function useCountUp({ from = 0, to = 100, durationMs = 1100, decimals = 0 }) {
+  const [value, setValue] = useState(from);
+
+  useEffect(() => {
+    let raf = null;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const t = clamp((now - start) / durationMs, 0, 1);
+      const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+      const current = from + (to - from) * eased;
+
+      if (decimals > 0) {
+        const factor = Math.pow(10, decimals);
+        setValue(Math.round(current * factor) / factor);
+      } else {
+        setValue(Math.round(current));
+      }
+
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+    return () => raf && cancelAnimationFrame(raf);
+  }, [from, to, durationMs, decimals]);
+
+  return value;
+}
+
+/** ---------- Page ---------- **/
 export default function Home() {
+  // Your real-world ratings (from screenshots)
+  const ratingAvg = 5.0;
+  const totalReviews = 51;
+
+  const platformBreakdown = useMemo(
+    () => [
+      { label: "Field Nation", rating: 5.0, count: 33 },
+      { label: "Yelp", rating: 5.0, count: 13 },
+      { label: "Google", rating: 5.0, count: 3 },
+      { label: "Angi", rating: 5.0, count: 2 },
+    ],
+    []
+  );
+
+  const animatedRating = useCountUp({ from: 4.6, to: ratingAvg, durationMs: 1200, decimals: 1 });
+  const animatedTotal = useCountUp({ from: 0, to: totalReviews, durationMs: 1200, decimals: 0 });
+
   return (
     <>
       <Header />
 
-      {/* Push content below fixed header */}
-      <main className="min-h-screen bg-slate-50 text-slate-900 pt-24">
+      <main className="min-h-screen bg-slate-50 text-slate-900 pt-20">
         {/* Hero */}
         <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
           <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 md:flex-row md:items-center">
@@ -21,13 +100,12 @@ export default function Home() {
               <h1 className="mt-3 text-3xl font-extrabold md:text-4xl">
                 Structured Cabling & CCTV You Can Depend On.
               </h1>
-              <p className="mt-4 max-w-xl text-sm text-slate-200 md:text-base">
+              <p className="mt-4 max-w-xl text-sm md:text-base text-slate-200">
                 Professional low-voltage services for businesses and homeowners in Reno, Sparks,
                 and Carson City. From clean, reliable cabling to CCTV systems that actually work
                 when you need them.
               </p>
-
-              <div className="mt-6 flex flex-wrap items-center gap-3">
+              <div className="mt-6 flex flex-wrap items-center gap-4">
                 <a
                   href="#contact"
                   className="rounded-md bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-blue-400"
@@ -55,6 +133,97 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Premium Ratings / Trust Section (Animated) */}
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-14">
+            <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+              {/* Left */}
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
+                  Trusted Across Multiple Platforms
+                </p>
+
+                <div className="mt-3 flex flex-wrap items-end gap-3">
+                  <div className="text-5xl font-extrabold tracking-tight text-slate-900">
+                    {formatOneDecimal(animatedRating)}
+                  </div>
+                  <div className="pb-2 text-lg font-semibold text-slate-700">/ 5.0</div>
+                </div>
+
+                <div className="mt-2 flex items-center gap-3">
+                  <Stars rating={5} />
+                  <span className="text-sm text-slate-600">
+                    Average rating across {animatedTotal} verified reviews
+                  </span>
+                </div>
+
+                <p className="mt-4 max-w-xl text-sm text-slate-600">
+                  Homeowners and businesses choose S. C. Mead Communications for clean installs,
+                  clear communication, and results that last.
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href="/testimonials"
+                    className="inline-flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-800"
+                  >
+                    Read Testimonials
+                  </a>
+                  <a
+                    href="tel:7753033269"
+                    className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+                  >
+                    Call: (775) 303-3269
+                  </a>
+                </div>
+              </div>
+
+              {/* Right */}
+              <div className="rounded-2xl border bg-slate-50 p-6 shadow-sm">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-bold text-slate-900">Ratings Breakdown</h3>
+                  <div className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">
+                    Updated
+                  </div>
+                </div>
+
+                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  {platformBreakdown.map((p) => (
+                    <div
+                      key={p.label}
+                      className="rounded-xl bg-white p-4 ring-1 ring-slate-200 hover:shadow-sm transition"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="text-sm font-semibold text-slate-900">{p.label}</div>
+                        <div className="text-xs text-slate-500">{p.count} reviews</div>
+                      </div>
+                      <div className="mt-2 flex items-center gap-2">
+                        <Stars rating={p.rating} />
+                        <span className="text-sm font-semibold text-slate-900">
+                          {p.rating.toFixed(1)}
+                        </span>
+                      </div>
+                      <div className="mt-3 h-2 w-full rounded-full bg-slate-100">
+                        <div className="h-2 w-full rounded-full bg-blue-500" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 rounded-xl bg-white p-4 ring-1 ring-slate-200">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 h-2 w-2 rounded-full bg-blue-500" />
+                    <p className="text-sm text-slate-700">
+                      <span className="font-semibold text-slate-900">Pro tip:</span> This “multi-platform”
+                      rating section boosts trust fast — especially for first-time visitors.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Services */}
         <section id="services" className="mx-auto max-w-6xl px-4 py-12">
           <h2 className="text-2xl font-bold text-slate-900">Services</h2>
@@ -65,7 +234,7 @@ export default function Home() {
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <a
               href="/services/structured-cabling"
-              className="rounded-lg border bg-white p-6 shadow-sm transition hover:shadow-md"
+              className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
             >
               <h3 className="text-lg font-semibold text-slate-900">Structured Cabling</h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -75,7 +244,7 @@ export default function Home() {
 
             <a
               href="/services/cctv"
-              className="rounded-lg border bg-white p-6 shadow-sm transition hover:shadow-md"
+              className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
             >
               <h3 className="text-lg font-semibold text-slate-900">CCTV / Camera Systems</h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -85,7 +254,7 @@ export default function Home() {
 
             <a
               href="/services/wifi-networking"
-              className="rounded-lg border bg-white p-6 shadow-sm transition hover:shadow-md"
+              className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
             >
               <h3 className="text-lg font-semibold text-slate-900">Wi-Fi & Networking</h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -95,7 +264,7 @@ export default function Home() {
 
             <a
               href="/services/audio-av"
-              className="rounded-lg border bg-white p-6 shadow-sm transition hover:shadow-md"
+              className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
             >
               <h3 className="text-lg font-semibold text-slate-900">Audio / A/V</h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -105,7 +274,7 @@ export default function Home() {
 
             <a
               href="/services/low-voltage-support"
-              className="rounded-lg border bg-white p-6 shadow-sm transition hover:shadow-md"
+              className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition"
             >
               <h3 className="text-lg font-semibold text-slate-900">Low Voltage Support</h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -115,45 +284,47 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Reviews (top 5) */}
-        <section className="mx-auto max-w-6xl px-4 pb-12">
-          <div className="rounded-2xl border bg-white p-6 shadow-sm md:p-10">
-            <h2 className="text-2xl font-bold text-slate-900">What Clients Are Saying</h2>
-            <p className="mt-2 text-sm text-slate-600">
-              A few words from homeowners and businesses we’ve worked with.
-            </p>
-
-            <div className="mt-6">
-              <ReviewCarousel reviews={reviews} intervalMs={5000} />
+        {/* What Clients Are Saying (Carousel) */}
+        <section className="bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-14">
+            <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 className="text-3xl font-extrabold text-slate-900">What Clients Are Saying</h2>
+                <p className="mt-2 text-sm text-slate-600">
+                  A few words from homeowners and businesses we’ve worked with in Northern Nevada.
+                </p>
+              </div>
+              <a
+                href="/testimonials"
+                className="mt-4 inline-flex w-fit items-center gap-2 text-sm font-semibold text-blue-600 hover:underline md:mt-0"
+              >
+                Read more reviews <span aria-hidden="true">→</span>
+              </a>
             </div>
 
-            <div className="mt-4">
-              <a href="/testimonials" className="text-sm font-semibold text-blue-600 hover:underline">
-                Read more reviews →
-              </a>
+            <div className="mt-8">
+              <ReviewCarousel reviews={reviews} intervalMs={3000} />
             </div>
           </div>
         </section>
 
         {/* About */}
-        <section id="about" className="bg-white">
+        <section id="about" className="bg-slate-50">
           <div className="mx-auto max-w-6xl px-4 py-12">
-            <h2 className="text-2xl font-bold text-slate-900">
-              About S. C. Mead Communications
-            </h2>
+            <h2 className="text-2xl font-bold text-slate-900">About S. C. Mead Communications</h2>
             <p className="mt-2 text-sm text-slate-600">
-              With close to two decades in low voltage, Shane has worked coast-to-coast — from the
-              Bay Area of California to the Florida coastline — supporting residential and
-              commercial projects along the way.
+              With close to two decades of low voltage experience, Shane has worked coast-to-coast —
+              from the Bay Area of California to the Florida coast — supporting everything from
+              residential networks to large-scale commercial deployments.
             </p>
             <p className="mt-2 text-sm text-slate-600">
-              He’s helped launch and support contracting teams in multiple markets and has worked
-              with providers and firms including Xfinity/Comcast, Suddenlink, Charter/Spectrum,
-              APS, CPT, Pivital, and many others.
+              Along the way, he’s helped launch multiple contracting teams and has worked with major
+              providers and platforms including Xfinity/Comcast, Suddenlink, Charter Spectrum, APS,
+              CPT, Pivital, and more.
             </p>
             <p className="mt-2 text-sm text-slate-600">
-              From the first walkthrough to the final test, the focus stays the same: efficient
-              planning, clean workmanship, and an install that looks as good as it performs.
+              From the first walkthrough to the final cleanup, the focus is simple: efficient,
+              high-quality work with clean aesthetics — built to last and easy to service later.
             </p>
           </div>
         </section>
@@ -232,9 +403,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </main>
 
-      <Footer />
+        <Footer />
+      </main>
     </>
   );
 }
