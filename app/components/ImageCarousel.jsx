@@ -33,7 +33,7 @@ export default function ImageCarousel({
         src={safeImages[index]}
         alt={alt}
         fill
-        className="object-cover"
+        className="object-contain bg-gradient-to-br from-slate-50 to-slate-200"
         sizes="100vw"
         priority
       />
