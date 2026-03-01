@@ -22,14 +22,12 @@ export default function WifiNetworkingPage() {
       <Header />
       <main className="min-h-screen bg-slate-50 text-slate-900 pt-32 px-4">
         <div className="mx-auto max-w-6xl py-10">
-          <h1 className="text-3xl font-bold text-slate-900">
-            Wi-Fi & Networking
-          </h1>
-          <p className="mt-3 text-sm text-slate-600 max-w-3xl">
-            Wi-Fi and network cabling for homes and small businesses. From
-            access points and bridges to Ethernet drops for POS and work areas,
-            the goal is stable, reliable coverage instead of &quot;dead
-            spots.&quot;
+          <h1 className="text-3xl font-bold text-slate-900">Wi-Fi & Networking</h1>
+
+          <p className="mt-3 max-w-3xl text-sm text-slate-600">
+            Wi-Fi and network cabling for homes and small businesses. From access points and
+            bridges to Ethernet drops for POS and work areas, the goal is stable, reliable
+            coverage instead of &quot;dead spots.&quot;
           </p>
 
           <div className="mt-6 grid gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
@@ -37,6 +35,7 @@ export default function WifiNetworkingPage() {
               <h2 className="text-lg font-semibold text-slate-900">
                 Wi-Fi & network services
               </h2>
+
               <ul className="mt-3 space-y-2 text-sm text-slate-700">
                 <li>• Ethernet drops for workstations and POS systems</li>
                 <li>• Cabling for access points and small mesh systems</li>
@@ -46,9 +45,9 @@ export default function WifiNetworkingPage() {
               </ul>
 
               <p className="mt-4 text-sm text-slate-600">
-                If you&apos;re fighting with Wi-Fi coverage or have gear
-                installed with no labeling, we can help get things cabled and
-                organized so your IT provider has a clean starting point.
+                If you&apos;re fighting with Wi-Fi coverage or have gear installed with no
+                labeling, we can help get things cabled and organized so your IT provider has
+                a clean starting point.
               </p>
 
               <a
@@ -61,22 +60,27 @@ export default function WifiNetworkingPage() {
 
             <div className="text-xs text-slate-500 md:text-right">
               <p>Support on the low-voltage side of your network.</p>
-              <p className="mt-1">
-                Ideal for homes, small offices, and retail locations.
-              </p>
+              <p className="mt-1">Ideal for homes, small offices, and retail locations.</p>
             </div>
           </div>
 
-          <ImageCarousel
-            images={wifiImages}
-            alt="Wi-Fi and networking projects by S. C. Mead Communications"
-            intervalMs={5000}
-            height={400}
-          />
+          {/* --- Uniform Image Carousel (Option 1) --- */}
+          <section className="mt-10">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              {/* fixed height container so the carousel can use "fill" */}
+              <div className="relative h-80 w-full md:h-96">
+                <ImageCarousel
+                  images={wifiImages}
+                  alt="Wi-Fi and networking projects by S. C. Mead Communications"
+                  intervalMs={5000}
+                />
+              </div>
+            </div>
 
-          <p className="mt-3 text-xs text-slate-500">
-            Photos from Wi-Fi, POS, and small networking projects.
-          </p>
+            <p className="mt-3 text-xs text-slate-500">
+              Photos from Wi-Fi, POS, and small networking projects.
+            </p>
+          </section>
         </div>
       </main>
       <Footer />
