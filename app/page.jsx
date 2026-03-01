@@ -75,9 +75,9 @@ export default function Home() {
   const platformBreakdown = useMemo(
     () => [
       { label: "Field Nation", rating: 5.0, count: 33 },
-      { label: "Yelp", rating: 5.0, count: 13 },
+      { label: "Yelp", rating: 5.0, count: 2 },
       { label: "Google", rating: 5.0, count: 3 },
-      { label: "Angi", rating: 5.0, count: 2 },
+      { label: "Angi", rating: 5.0, count: 13 },
     ],
     []
   );
@@ -210,14 +210,12 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div className="mt-6 rounded-xl bg-white p-4 ring-1 ring-slate-200">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1 h-2 w-2 rounded-full bg-blue-500" />
-                    <p className="text-sm text-slate-700">
-                      <span className="font-semibold text-slate-900">Pro tip:</span> This “multi-platform”
-                      rating section boosts trust fast — especially for first-time visitors.
-                    </p>
-                  </div>
+               <div className="mt-6 rounded-xl bg-white p-4 ring-1 ring-slate-200">
+  <p className="text-sm text-slate-700">
+    <span className="font-semibold text-slate-900">Consistent 5-star feedback</span> across multiple platforms — the
+    same focus on clean installs, communication, and reliability every time.
+  </p>
+</div>
                 </div>
               </div>
             </div>
@@ -312,20 +310,21 @@ export default function Home() {
         <section id="about" className="bg-slate-50">
           <div className="mx-auto max-w-6xl px-4 py-12">
             <h2 className="text-2xl font-bold text-slate-900">About S. C. Mead Communications</h2>
-            <p className="mt-2 text-sm text-slate-600">
-              With close to two decades of low voltage experience, Shane has worked coast-to-coast —
-              from the Bay Area of California to the Florida coast — supporting everything from
-              residential networks to large-scale commercial deployments.
-            </p>
-            <p className="mt-2 text-sm text-slate-600">
-              Along the way, he’s helped launch multiple contracting teams and has worked with major
-              providers and platforms including Xfinity/Comcast, Suddenlink, Charter Spectrum, APS,
-              CPT, Pivital, and more.
-            </p>
-            <p className="mt-2 text-sm text-slate-600">
-              From the first walkthrough to the final cleanup, the focus is simple: efficient,
-              high-quality work with clean aesthetics — built to last and easy to service later.
-            </p>
+           <p className="mt-2 text-sm text-slate-600">
+  With close to two decades of low voltage experience, Shane has worked coast-to-coast — from the Bay Area of
+  California to the Florida coast — supporting everything from residential networks to large-scale commercial
+  deployments.
+</p>
+<p className="mt-2 text-sm text-slate-600">
+  Over the years he’s partnered with major providers and platforms including Xfinity/Comcast, Suddenlink,
+  Charter Spectrum, APS, CPT, Pivital, and more — plus he’s helped teams get up and running in multiple markets.
+</p>
+<p className="mt-2 text-sm text-slate-600">
+  Today, S. C. Mead Communications is focused on Northern Nevada with a simple standard: show up on time,
+  communicate clearly, and deliver work that looks as good as it performs. From the first walkthrough to the
+  final cleanup, every project gets the same attention to efficiency, quality, and clean aesthetics — built to
+  last and easy to service later.
+</p>
           </div>
         </section>
 
