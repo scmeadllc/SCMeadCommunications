@@ -1,59 +1,61 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 
 export default function ImageCarousel({
-  images,
-  alt = "Service photo",
+  images = [],
+  alt = "Project images",
   intervalMs = 5000,
 }) {
+  const safeImages = useMemo(
+    () => (Array.isArray(images) ? images.filter(Boolean) : []),
+    [images]
+  );
+
   const [index, setIndex] = useState(0);
 
-  if (!images || images.length === 0) return null;
-
   useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
+    if (safeImages.length <= 1) return;
+
+    const t = setInterval(() => {
+      setIndex((prev) => (prev + 1) % safeImages.length);
     }, intervalMs);
 
-    return () => clearInterval(id);
-  }, [images.length, intervalMs]);
+    return () => clearInterval(t);
+  }, [safeImages.length, intervalMs]);
+
+  if (!safeImages.length) return null;
+
+  const current = safeImages[index];
 
   return (
-    <div className="mt-8 flex justify-center">
-      {/* 66% width container */}
-      <div className="w-[66%] max-w-4xl">
+    <div className="relative h-full w-full">
+      <Image
+        src={current}
+        alt={alt}
+        fill
+        sizes="(max-width: 768px) 100vw, 1200px"
+        className="object-cover"
+        priority={index === 0}
+      />
 
-        <div className="relative w-full overflow-hidden rounded-lg border border-slate-200 bg-black">
-          {images.map((src, i) => {
-            const encodedSrc = encodeURI(src);
-            return (
-              <img
-                key={src + i}
-                src={encodedSrc}
-                alt={alt}
-                className={`w-full h-auto object-contain transition-opacity duration-700 ease-in-out ${
-                  i === index ? "opacity-100" : "opacity-0 absolute inset-0"
-                }`}
-              />
-            );
-          })}
-        </div>
-
-        {/* Dots */}
-        <div className="mt-3 flex justify-center gap-2">
-          {images.map((_, i) => (
+      {/* Dots */}
+      {safeImages.length > 1 && (
+        <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 rounded-full bg-black/40 px-3 py-2">
+          {safeImages.map((_, i) => (
             <button
               key={i}
+              type="button"
               onClick={() => setIndex(i)}
-              className={`h-2.5 w-2.5 rounded-full transition ${
-                i === index ? "bg-blue-600" : "bg-slate-300"
+              aria-label={`View image ${i + 1}`}
+              className={`h-2 w-2 rounded-full ${
+                i === index ? "bg-white" : "bg-white/50 hover:bg-white/80"
               }`}
-              aria-label={`Go to image ${i + 1}`}
             />
           ))}
         </div>
-      </div>
+      )}
     </div>
   );
 }
