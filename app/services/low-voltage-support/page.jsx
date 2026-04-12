@@ -12,6 +12,8 @@ const lowVoltageImages = [
   "/low-voltage-support/kramers project.jpg",
   "/low-voltage-support/nvr.jpg",
   "/low-voltage-support/ups longley before after.png",
+  "/low-voltage-support/rack cleanup 1.png",
+  "/low-voltage-support/rack cleanup 2.png",
 ];
 
 export default function LowVoltageSupportPage() {
