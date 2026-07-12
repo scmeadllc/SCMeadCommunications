@@ -1,7 +1,6 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-
 export const metadata = {
   title: "MeadConnect Business Phone Systems | S. C. Mead Communications",
   description:
